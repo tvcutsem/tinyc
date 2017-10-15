@@ -1,0 +1,24 @@
+/*
+ * Proof of correctness that CALL instructions
+ * take global variables into account during optimization
+ * to guarantee correctness of optimized code
+ *
+ * The statement 'x = z + z' SHOULD be duplicated, not shared,
+ * because f may alter the value of x
+ */
+
+int x;
+char y;
+
+void f() {
+  x = 1;
+  y = 'a'
+}
+
+void tiny() {
+  int z;
+  z = 5;
+  x = z + z;
+  f();
+  x = z + z
+}

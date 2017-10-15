@@ -1,0 +1,67 @@
+/*
+ * Quicksort in Tiny, good illustration of about all Tiny constructs and
+ * non-trivial example
+ */
+
+void swap_elts(int[0] a, int i, int j) {
+  int temp;
+  temp = a[i];
+  a[i] = a[j];
+  a[j] = temp
+}
+
+void quicksort(int[0] a, int low, int high) {
+  int lowcpy;  //copy of low
+  int highcpy; //copy of high
+  int pivot;
+  if (low < high) {
+     if (a[high] < a[low])
+       swap_elts(a,low,high);
+     lowcpy = low+1;
+     highcpy = high;
+     pivot = a[low];
+     while (1) {
+        while (a[lowcpy] < pivot)
+	   lowcpy = lowcpy + 1;
+	while (pivot < a[highcpy]) 
+	   highcpy = highcpy - 1;
+	if (lowcpy < highcpy)
+	   swap_elts(a,lowcpy,highcpy)
+	else
+	  break
+     };
+     swap_elts(a,low,highcpy);
+     quicksort(a,low,highcpy-1);
+     quicksort(a,highcpy+1,high)
+  }
+}
+
+void print(int[0] a) {
+  char newline;
+  int alen;
+  int i;
+  newline = 10;
+  alen = length a;
+  for (i = 0; i < alen; i=i+1) {
+    write a[i];
+    write ','
+  };
+  write newline
+}
+
+void tiny() {
+  int[10] tosort;
+  tosort[0] = 5;
+  tosort[1] = 1;
+  tosort[2] = 3;
+  tosort[3] = 4;
+  tosort[4] = 9;
+  tosort[5] = 0;
+  tosort[6] = 7;
+  tosort[7] = 2;
+  tosort[8] = 6;
+  tosort[9] = 8;
+  print(tosort);
+  quicksort(tosort,0,(length tosort)-1);
+  print(tosort)
+}

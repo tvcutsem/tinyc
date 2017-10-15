@@ -1,0 +1,59 @@
+/**
+ * Example use of multi-dimensional arrays in tiny
+ *
+ * The program multiplies square matrices (n-dimensional arrays, n even)
+ */
+
+void printmatrix(int[0][0] m) {
+  char newline;
+  newline = 10;
+  write m[0][0];
+  write m[0][1];
+  write m[1][0];
+  write m[1][1];
+  write newline
+}
+
+void matrix_multiply(int[0][0] m1, int[0][0] m2, int[0][0] res) {
+  int len;
+  int xcnt;
+  len = (length m1)/2;
+  xcnt = 0;
+  while (xcnt < len) {
+    int ycnt;
+    ycnt = 0;
+    while (ycnt < len) {
+       int cnt;
+       res[xcnt][ycnt] = 0;
+       for (cnt = 0; cnt < len; cnt = cnt + 1) {
+         res[xcnt][ycnt] = res[xcnt][ycnt] + m1[xcnt][cnt] * m2[cnt][ycnt]
+       };
+       ycnt=ycnt+1
+    };
+    xcnt=xcnt+1
+  }
+}
+
+void tiny() {
+  int[2][2] result;
+  int[2][2] m;
+  int[2][2] I; //identity matrix
+
+  I[0][0] = 1;
+  I[0][1] = 0;
+  I[1][0] = 0;
+  I[1][1] = 1;
+  printmatrix(I);
+
+  write 'x';
+
+  m[0][0] = 1;
+  m[0][1] = 2;
+  m[1][0] = 3;
+  m[1][1] = 4;
+  printmatrix(m);
+
+  matrix_multiply(I,m,result);
+  write '=';
+  printmatrix(result)
+}

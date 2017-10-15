@@ -1,0 +1,76 @@
+void tiny() { }
+
+/* Common Subexpression Elimination
+void f1(int xx) {
+  int p;
+  int q;
+  int x;
+  int y;
+  p = 3;
+  q = 4;
+  x = (p+q)+4;
+  read x;
+  y = (p+q)+4
+}
+*/
+
+/* Proof of correctness for arrays
+void f2() {
+  int[2] a;
+  int x;
+  int i;
+  int j;
+  int y;
+  int z;
+
+  i = 0;
+  j = 0;
+  y = 4;
+  
+  x = a[i];
+  a[j] = y;
+  z = a[i]
+}
+*/
+
+/* Common Subexpression Elimination
+int f3() {
+  int x;
+  int y;
+  int z;
+  x = y+3;
+  write x;
+  write y+3
+}
+*/
+
+/* Optimization of both CSE and multiple array access
+void f4() {
+  int[3] a;
+  int i;
+  int x;
+  int y;
+  int z;
+  y = 4;
+  x = 1+y;
+  z = a[1+y];
+  i = 1+y;
+  x = a[i]
+}
+*/
+
+/* Commutativity is taken into accound, as well as algebraic identities
+void f5() {
+  int x;
+  int y;
+  int z;
+  int v;
+
+  v = 4;
+  z = 1*v;
+  y = 0+v;
+
+  x = y*z;
+  write z*y
+}
+*/
