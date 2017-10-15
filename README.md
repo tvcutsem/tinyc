@@ -11,3 +11,5 @@ The compiler features parsing and scanning using Bison and Flex parser generator
 Detailed descriptions of optimizations and the generated code are explained in the docs.
 
 The compiler is written in C++ (tested and compiled using gcc v3.1, remember, this project was written in 2003).
+
+A simple `make` will build the compiler.
