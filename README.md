@@ -2,9 +2,9 @@
 
 The Tiny Compiler is a ["by the book"](https://en.wikipedia.org/wiki/Compilers:_Principles,_Techniques,_and_Tools) compiler which compiles a small C-like language (called Tiny) to Java Virtual Machine assembler.
 
-In 2003, back when I was a Master student at university I followed a Compilers course. To this day, I still consider it one of the most fascinating topics in computer science.
+In 2003, back when I was a CS student at university I followed a Compilers course. To this day, I still consider it one of the most fascinating topics in computer science.
 
-This repo is my project assignment for the course. The objective: compile a C-like language to JVM bytecode. I share it here in the hope others may find it useful. Keep in mind this was a student project. Learn from it what you can.
+This repo contains my project assignment for the course. The objective: compile a C-like language to JVM bytecode. I share it here in the hope others may find it useful. Keep in mind this was a student project. Learn from it what you can (in case you are curious, I got the maximum score for the course :wink:)
 
 The compiler architecture is built using an object-oriented architecture with extensive use of the visitor design pattern to process the datastructures
 representing source code and IR code. It follows a traditional compiler pipeline (lexing, parsing, name resolution and typechecking, IR code generation and optimization, target code generation and optimization).
