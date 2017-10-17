@@ -6,9 +6,10 @@ In 2003, back when I was a Master student at university I followed a Compilers c
 
 This repo is my project assignment for the course. The objective: compile a C-like language to JVM bytecode. I share it here in the hope others may find it useful. Keep in mind this was a student project. Learn from it what you can.
 
-The compiler features parsing and scanning using Bison and Flex parser generators. The source is type-checked, an Abstract Syntax Tree is used for checking for uninitialized variables etc. This tree is then mapped to so-called 'three address code'. This code is then higly optimized using a DAG (Directed Acyclic Graph) representation. Afterwards, the code is transformed to JVM Assembler (to be processed subsequently by tools like javaa which produce .class files for the JVM).
+The compiler architecture is built using an object-oriented architecture with extensive use of the visitor design pattern to process the datastructures
+representing source code and IR code. It follows a traditional compiler pipeline (lexing, parsing, name resolution and typechecking, IR code generation and optimization, target code generation and optimization).
 
-The compiler is written in C++ (tested and compiled using gcc v3.1, remember, this project was written in 2003).
+The compiler is written in C++ and was tested and compiled using gcc v3.1 (remember, this project was written in 2003).
 
 ## Features
 
@@ -25,12 +26,12 @@ Detailed descriptions of optimizations and the generated code are explained in [
 
 ## Building and running
 
-A simple `make` will build the tiny compiler.
+A simple `make` command will build the tiny compiler.
 
 To compile a file using the tiny compiler, e.g. `factorial.tiny`:
 
 ```
-./tinyc factorial < factorial.tiny
+./tinyc.sh factorial < factorial.tiny
 ```
 
 This generates a Java `.class` file.
